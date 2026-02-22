@@ -1,5 +1,5 @@
 import { Entity, Column, ManyToOne, JoinColumn, PrimaryGeneratedColumn } from 'typeorm'
-import type { Cart } from './Cart'
+import type { Cart } from './cart.entity'
 
 @Entity('cart_products')
 export class CartProduct {

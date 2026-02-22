@@ -1,11 +1,7 @@
+import { CartsPage } from './pages/CartsPage'
 
 function App() {
-
-  return (
-    <>
-
-    </>
-  )
+  return <CartsPage />
 }
 
 export default App

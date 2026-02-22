@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { CartRepository } from '../repositories/cart.repository'
-import { Cart } from '../entities/Cart'
+import { Cart } from '../entities/cart.entity'
 import { CartDTO } from '../dto/cart.dto'
 import { mapperToCartDTO } from '../mappers/cart.mapper'
 

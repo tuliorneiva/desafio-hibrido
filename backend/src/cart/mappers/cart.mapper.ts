@@ -1,4 +1,4 @@
-import { Cart } from "../entities/Cart";
+import { Cart } from "../entities/cart.entity";
 
 export const mapperToCartDTO = (cart: Cart) => {
     return {

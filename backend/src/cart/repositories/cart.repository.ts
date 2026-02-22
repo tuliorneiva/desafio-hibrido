@@ -1,5 +1,5 @@
 import { AppDataSource } from '../../database/data-source'
-import { Cart } from '../entities/Cart'
+import { Cart } from '../entities/cart.entity'
 
 const cartRepo = AppDataSource.getRepository(Cart)
 
