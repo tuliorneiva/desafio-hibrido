@@ -14,7 +14,7 @@ export function CartCard({ cart }: CartCardProps) {
           <ShoppingCart size={18} className="text-blue-500" />
           <span className="font-semibold text-base">Carrinho</span>
         </div>
-        <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-600">
+        <span className="rounded-full bg-blue-50 border px-3 py-1 text-xs font-bold text-blue-600">
           #{cart.id}
         </span>
       </div>
@@ -31,7 +31,7 @@ export function CartCard({ cart }: CartCardProps) {
         </div>
       </div>
 
-      <div className="mt-auto pt-3 border-t border-gray-100">
+      <div className="mt-auto pt-3">
         <div className="flex items-center gap-2">
           <Package size={15} className="text-blue-400" />
           <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
