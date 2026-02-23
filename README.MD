@@ -17,6 +17,8 @@ O sistema procura estas informações numa API pública, persiste os dados local
 
 > Certifique-se de que tem o **Node.js (versão 18 ou superior)** instalado na sua máquina.
 
+1. Clone o projeto
+
 ### Executar o Backend
 
 1. Navegue até à pasta do backend:
