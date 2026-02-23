@@ -1,9 +1,13 @@
 import { ShoppingCart, User, Calendar, Package } from 'lucide-react'
-import { format } from 'date-fns'
 import type { Cart } from '../types/cart'
 
 interface CartCardProps {
   cart: Cart
+}
+
+const formatUTCDate = (date: Date): string => {
+  const [year, month, day] = new Date(date).toISOString().substring(0, 10).split('-')
+  return `${day}/${month}/${year}`
 }
 
 export function CartCard({ cart }: CartCardProps) {
@@ -27,7 +31,7 @@ export function CartCard({ cart }: CartCardProps) {
 
         <div className="flex items-center gap-3">
           <Calendar size={15} className="shrink-0 text-gray-400" />
-          <span>{format(new Date(cart.date), 'dd/MM/yyyy')}</span>
+          <span>{formatUTCDate(cart.date)}</span>
         </div>
       </div>
 

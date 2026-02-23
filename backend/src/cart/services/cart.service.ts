@@ -7,6 +7,7 @@ import { mapperToCartDTO } from '../mappers/cart.mapper'
 
 export const CartService = {
     sync: async (): Promise<void> => {
+        await CartRepository.clear()
         const { data } = await axios.get<any[]>('https://fakestoreapi.com/carts')
     
         const carts: Partial<Cart>[] = data.map((item) => ({

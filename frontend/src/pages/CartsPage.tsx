@@ -4,11 +4,22 @@ import { CartService } from '../services/cart.service'
 import { CartCard } from '../components/CartCard'
 import { LoadingSpinner } from '../components/LoadingSpinner'
 import type { Cart } from '../types/cart'
+import { useCartFilters } from '../hooks/useCartFilters'
+import { CartFilters } from '../components/CartFilters'
 
 export function CartsPage() {
   const [carts, setCarts] = useState<Cart[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
+
+  const {
+    filters,
+    filteredCarts,
+    uniqueUserIds,
+    hasActiveFilters,
+    onUpdateFilter,
+    onClearFilters,
+  } = useCartFilters(carts)
 
   useEffect(() => {
     CartService.getCarts()
@@ -41,15 +52,31 @@ export function CartsPage() {
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-gray-800">Carrinhos</h2>
               <p className="text-sm text-gray-400 mt-1">
-                {carts.length} {carts.length === 1 ? 'carrinho encontrado' : 'carrinhos encontrados'}
+                {filteredCarts.length}{' '}
+                {filteredCarts.length === 1 ? 'carrinho encontrado' : 'carrinhos encontrados'}
+                {hasActiveFilters && (
+                  <span className="ml-1 text-gray-300">
+                    (de {carts.length} no total)
+                  </span>
+                )}
               </p>
             </div>
 
-            {carts.length === 0 ? (
-              <p className="text-gray-500">Nenhum carrinho encontrado.</p>
+            <CartFilters
+              filters={filters}
+              uniqueUserIds={uniqueUserIds}
+              hasActiveFilters={hasActiveFilters}
+              onUpdateFilter={onUpdateFilter}
+              onClearFilters={onClearFilters}
+            />
+
+            {filteredCarts.length === 0 ? (
+              <p className="text-center text-gray-400 py-20">
+                Nenhum carrinho encontrado com os filtros aplicados.
+              </p>
             ) : (
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {carts.map((cart) => (
+                {filteredCarts.map((cart) => (
                   <CartCard key={cart.id} cart={cart} />
                 ))}
               </div>

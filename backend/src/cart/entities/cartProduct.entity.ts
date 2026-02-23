@@ -12,7 +12,9 @@ export class CartProduct {
   @Column()
   quantity: number
 
-  @ManyToOne('Cart', (cart: Cart) => cart.products)
+  @ManyToOne('Cart', (cart: Cart) => cart.products, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'cartId' })
   cart: Cart
 }

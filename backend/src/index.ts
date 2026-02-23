@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import { AppDataSource } from './database/data-source'
 import { CartService } from './cart/services/cart.service'
 import cartRoutes from './cart/routes/cart.routes'
+import { startSyncScheduler } from './scheduler/sync.scheduler'
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ AppDataSource.initialize()
     console.log('Database connected')
     await CartService.sync()
     console.log('Carts synced from Fake Store API')
+    startSyncScheduler()
     app.listen(process.env.PORT ?? 3000, () => {
       console.log(`Server running on port ${process.env.PORT ?? 3000}`)
     })

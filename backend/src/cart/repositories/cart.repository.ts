@@ -13,6 +13,8 @@ export const CartRepository = {
     relations: ['products'],
   }),
 
+  clear: () => cartRepo.clear(),
+
   saveMany: async (carts: Partial<Cart>[]) => {
     const entities = cartRepo.create(carts)
     return cartRepo.save(entities)
