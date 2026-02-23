@@ -19,6 +19,10 @@ O sistema procura estas informações numa API pública, persiste os dados local
 
 1. Clone o projeto
 
+   ```bash
+   git clone git@github.com:tuliorneiva/desafio-hibrido.git
+   ```
+
 ### Executar o Backend
 
 1. Navegue até à pasta do backend:
